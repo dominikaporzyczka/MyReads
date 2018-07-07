@@ -17,6 +17,26 @@ body {
     color: #fff;
 }
 
+/* open search */
+.open-search {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}
+
+.open-search a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    font-size: 0;
+    border-radius: 50%;
+    background: #1abc9c 
+                url('./icons/add.svg') 
+                center/28px 
+                no-repeat;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
 /********* BOOK *********/
 .book {
     width: 140px;
