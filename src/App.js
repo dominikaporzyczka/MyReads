@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import Book from './Book'
 
-class BooksApp extends Component {
+class App extends Component {
     render() {
         return (
-            <div>
-                <h1>HELLO! Here will be your bookshelves :)</h1>
-                <Book />
+            <div className="list-books-title">
+                <h1>MyReads</h1>
             </div>
         )  
     }
 }
 
-export default BooksApp;
+export default App;
