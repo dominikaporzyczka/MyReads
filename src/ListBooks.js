@@ -23,8 +23,23 @@ class ListBooks extends Component {
                         <h1>MyReads</h1>
                     </div>
                     <div className="list-books-content">
-                        <Bookshelf 
-                            books={this.state.books}
+                        <Bookshelf
+                            title={"Currently Reading"}
+                            books={this.state.books.filter((book) => (
+                                book.shelf === "currentlyReading"
+                            ))}
+                        />
+                        <Bookshelf
+                            title={"Want To Read"}
+                            books={this.state.books.filter((book) => (
+                                book.shelf === "wantToRead"
+                            ))}
+                        />
+                        <Bookshelf
+                            title={"Read"}
+                            books={this.state.books.filter((book) => (
+                                book.shelf === "read"
+                            ))}
                         />
                     </div>
                     <div className="open-search">
