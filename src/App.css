@@ -88,6 +88,33 @@ body {
     opacity: 0;
     cursor: pointer;
 }
+/********* BOOKSHELF *********/
+.bookshelf {
+    padding: 20px 20px;
+}
+
+.bookshelf-title {
+    margin: 0;
+    border-bottom: 1px solid #dedede;
+}
+
+.bookshelf-books {
+    padding-top: 30px;
+}
+
+.books-grid {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.books-grid li {
+    padding: 10px 15px;
+    text-align: left;
+  }
 
 /********* SEARCH *********/
 .search-books-bar {
