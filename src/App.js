@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import './App.css'
 
 class App extends Component {
@@ -9,7 +10,9 @@ class App extends Component {
                     <h1>MyReads</h1>
                 </div>
                 <div className="open-search">
-                    <a>Add a book</a>
+                    <Link
+                        to="/search"
+                    >Add a book</Link>
                 </div>
             </div>
         )
