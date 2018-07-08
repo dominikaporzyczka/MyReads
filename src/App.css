@@ -20,8 +20,8 @@ body {
 /* open search */
 .open-search {
     position: fixed;
-    right: 50px;
-    bottom: 50px;
+    right: 25px;
+    bottom: 25px;
 }
 
 .open-search a {
@@ -90,7 +90,13 @@ body {
 }
 /********* BOOKSHELF *********/
 .bookshelf {
-    padding: 20px 20px;
+    padding: 20px 40px;
+}
+
+@media (max-width: 480px) {
+    .bookshelf {
+        padding: 20px 20px;
+    }
 }
 
 .bookshelf-title {
