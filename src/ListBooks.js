@@ -5,14 +5,26 @@ import './App.css'
 import * as BooksAPI from './BooksAPI'
 
 class ListBooks extends Component {
-    state = {
-        books: []
+    constructor(props) {
+        super(props)
+        this.state = {
+            books: []
+        }
+        this.handleUpdate = this.handleUpdate.bind(this)
     }
 
-    componentDidMount() {
+    getData() {
         BooksAPI.getAll().then((books) => {
             this.setState({ books })
         })
+    }
+
+    componentDidMount() {
+        this.getData()
+    }
+
+    handleUpdate() {
+        this.getData()
     }
 
     render() {
@@ -28,18 +40,21 @@ class ListBooks extends Component {
                             books={this.state.books.filter((book) => (
                                 book.shelf === "currentlyReading"
                             ))}
+                            handleUpdate={this.handleUpdate}
                         />
                         <Bookshelf
                             title={"Want To Read"}
                             books={this.state.books.filter((book) => (
                                 book.shelf === "wantToRead"
                             ))}
+                            handleUpdate={this.handleUpdate}
                         />
                         <Bookshelf
                             title={"Read"}
                             books={this.state.books.filter((book) => (
                                 book.shelf === "read"
                             ))}
+                            handleUpdate={this.handleUpdate}
                         />
                     </div>
                     <div className="open-search">
