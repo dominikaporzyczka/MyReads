@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import Bookshelf from './Bookshelf'
 import './App.css'
 
-class ListBooks extends Component {
-    render() {
+function ListBooks(props) {
         return (
             <div className="app">
                 <div className="list-books">
@@ -14,24 +13,24 @@ class ListBooks extends Component {
                     <div className="list-books-content">
                         <Bookshelf
                             title={"Currently Reading"}
-                            books={this.props.assignedBooks.filter((book) => (
+                            books={props.assignedBooks.filter((book) => (
                                 book.shelf === "currentlyReading"
                             ))}
-                            handleUpdate={this.props.handleUpdate}
+                            handleUpdate={props.handleUpdate}
                         />
                         <Bookshelf
                             title={"Want To Read"}
-                            books={this.props.assignedBooks.filter((book) => (
+                            books={props.assignedBooks.filter((book) => (
                                 book.shelf === "wantToRead"
                             ))}
-                            handleUpdate={this.props.handleUpdate}
+                            handleUpdate={props.handleUpdate}
                         />
                         <Bookshelf
                             title={"Read"}
-                            books={this.props.assignedBooks.filter((book) => (
+                            books={props.assignedBooks.filter((book) => (
                                 book.shelf === "read"
                             ))}
-                            handleUpdate={this.props.handleUpdate}
+                            handleUpdate={props.handleUpdate}
                         />
                     </div>
                     <div className="open-search">
@@ -42,7 +41,7 @@ class ListBooks extends Component {
                 </div>
             </div>
         )
-    }
 }
+
 
 export default ListBooks;
