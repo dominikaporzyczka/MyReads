@@ -2,31 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Bookshelf from './Bookshelf'
 import './App.css'
-import * as BooksAPI from './BooksAPI'
 
 class ListBooks extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            books: []
-        }
-        this.handleUpdate = this.handleUpdate.bind(this)
-    }
-
-    getData() {
-        BooksAPI.getAll().then((books) => {
-            this.setState({ books })
-        })
-    }
-
-    componentDidMount() {
-        this.getData()
-    }
-
-    handleUpdate() {
-        this.getData()
-    }
-
     render() {
         return (
             <div className="app">
@@ -37,24 +14,24 @@ class ListBooks extends Component {
                     <div className="list-books-content">
                         <Bookshelf
                             title={"Currently Reading"}
-                            books={this.state.books.filter((book) => (
+                            books={this.props.assignedBooks.filter((book) => (
                                 book.shelf === "currentlyReading"
                             ))}
-                            handleUpdate={this.handleUpdate}
+                            handleUpdate={this.props.handleUpdate}
                         />
                         <Bookshelf
                             title={"Want To Read"}
-                            books={this.state.books.filter((book) => (
+                            books={this.props.assignedBooks.filter((book) => (
                                 book.shelf === "wantToRead"
                             ))}
-                            handleUpdate={this.handleUpdate}
+                            handleUpdate={this.props.handleUpdate}
                         />
                         <Bookshelf
                             title={"Read"}
-                            books={this.state.books.filter((book) => (
+                            books={this.props.assignedBooks.filter((book) => (
                                 book.shelf === "read"
                             ))}
-                            handleUpdate={this.handleUpdate}
+                            handleUpdate={this.props.handleUpdate}
                         />
                     </div>
                     <div className="open-search">

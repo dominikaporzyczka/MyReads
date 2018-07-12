@@ -16,7 +16,7 @@ class Book extends Component {
         this.setState({ value })
         BooksAPI.update(this.props.book, value).then(() => {
             if (this.props.handleUpdate) {
-                this.props.handleUpdate()
+                this.props.handleUpdate(this.props.book, value)
             }
         })
     }

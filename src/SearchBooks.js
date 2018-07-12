@@ -9,14 +9,6 @@ class SearchBooks extends Component {
         searchResult: []
     }
 
-    allBooks = []
-
-    componentDidMount() {
-        BooksAPI.getAll().then((books) => {
-            this.allBooks = books
-        })
-    }
-
     updateQuery = (query) => {
         if (query) {
             BooksAPI.search(query).then((books) => {
@@ -25,8 +17,8 @@ class SearchBooks extends Component {
                 }
                 else {
                     const mapBooks = books.map((book) => {
-                        const findBook = this.allBooks
-                            .find((bookAssignedToTheShelf) => bookAssignedToTheShelf.id === book.id)
+                        const findBook = this.props.assignedBooks
+                            .find((assignedBook) => assignedBook.id === book.id)
                         if (findBook) {
                             book.shelf = findBook.shelf
                         }
@@ -58,6 +50,7 @@ class SearchBooks extends Component {
                 <div className="search-books-results">
                     <Bookshelf
                         books={this.state.searchResult}
+                        handleUpdate={this.props.handleUpdate}
                     />
                 </div>
             </div>
